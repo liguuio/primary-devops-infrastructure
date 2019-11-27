@@ -1,0 +1,7 @@
+X.Y.Z.W-server-cert.pem
+X.Y.Z.W-server-key.pem
+X.Y.Z.W.csr
+ca-key.pem
+ca.pem
+ca.srl
+extfile.cnf

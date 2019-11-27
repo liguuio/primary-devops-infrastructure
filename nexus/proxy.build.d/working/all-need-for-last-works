@@ -1,0 +1,6 @@
+X.Y.Z.W-server-cert.pem
+X.Y.Z.W-server-key.pem
+docker.registry.auth
+Dockerfile
+gd-clic-nexusproxy-20191127.tar
+nginx.conf
