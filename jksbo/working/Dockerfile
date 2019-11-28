@@ -1,4 +1,4 @@
-# docker build --no-cache -t plugined-jksbo .
+# docker build --no-cache -t my/jenkins:20191128 .
 
 FROM jenkinsci/blueocean:1.21.0
 # FROM jenkins/jenkins:lts
