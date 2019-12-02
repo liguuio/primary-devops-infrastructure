@@ -4,9 +4,9 @@
 
 DEPLOY_TYPE=$1
 
-STACK_NAME="jenkins"
+STACK_NAME="gitlab"
 
-DIR_NEED_CREATE=/var/jenkins-data
+DIR_NEED_CREATE=/var/gitlab-data
 
 function giveUpOldStack() {
   while (( "$(docker stack ls | grep $STACK_NAME | wc -l)" > "0" )); do
@@ -22,7 +22,7 @@ function deployToSwarm() {
     mkdir $DIR_NEED_CREATE
   fi
   sleep 5s
-  docker stack deploy --compose-file swarm-app.yml $STACK_NAME
+  docker stack deploy --compose-file gitlab-swarm-app.yml $STACK_NAME
 }
 
 function deployLocal() {

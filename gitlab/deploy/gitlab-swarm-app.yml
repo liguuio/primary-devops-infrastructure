@@ -1,0 +1,38 @@
+version: "3.7"
+services:
+  master:
+    image: X.Z.Y.W/gitlab:20191202
+    hostname: 'git.X.Z.Y.W'
+    ports:
+      - '80:80'
+      - '18002:22'
+    volumes:
+      - '/var/gitlab-data/config:/etc/gitlab'
+      - '/var/gitlab-data/logs:/var/log/gitlab'
+      - '/var/gitlab-data/data:/var/opt/gitlab'
+    logging:
+      driver: "json-file"
+      options: 
+        max-size: "10m"
+        max-file: "5"
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      replicas: 1
+      resources: 
+        limits:
+          cpus: '4.00'
+          memory: 16G
+        reservations:
+          cpus: '2.00'
+          memory: 8G
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 5s
+        order: start-first
